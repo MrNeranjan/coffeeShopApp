@@ -1,20 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {NavigationContainer} from "@react-navigation/native";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import { StyleSheet, Text, View,StatusBar } from "react-native";
+import TabNavigator from "./assets/navigators/tabNavigator";
+import DetailScreen from "./assets/screens/DetailsScreen";
+import PaymentDetailScreen from "./assets/screens/PaymentDetailScreen";
+import OderHistoryScreen from "./assets/screens/OrderHistoryScreen";
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer >
+      <StatusBar/>
+      <Stack.Navigator 
+        screenOptions={{headerShown:false}}>
+        <Stack.Screen 
+          name="Tab" 
+          component={TabNavigator}
+          options={{animation:'slide_from_right'}}
+          
+        />
+        <Stack.Screen 
+          name="DetailScreen" 
+          component={DetailScreen}
+          options={{animation:'slide_from_right'}}
+
+        />
+        <Stack.Screen 
+          name="PaymentDetailScreen" 
+          component={PaymentDetailScreen}
+          options={{animation:'slide_from_right'}}
+
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
