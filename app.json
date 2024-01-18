@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/appicon.png",
         "backgroundColor": "#0C0F14"
-      }
+      },
+      "package": "com.ongoal.coffeeShopApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8e6c31f5-cb29-4476-b21d-bcf9a9e17a38"
+      }
     }
   }
 }
